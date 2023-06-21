@@ -11,9 +11,15 @@ def detect_images(): #function to detect images in the current directory
 
 def flash(): #function to flash an android devices with every possible image in fastboot mode
     images = detect_images()
+    print(colored("Detected images: ", "green"))
     for image in images:
-        print(colored("Flashing " + image + "...", "green"))
+        
+        print(colored(image,"blue"))
+    for image in images:
+        
+        print(colored("Flashing " + image.split(".")[0] + "...", "green"))
         os.system("fastboot flash " + image.split(".")[0] + " " + image)
+        print(colored("Done!", "blue"))
 
 def main():
     flash()
