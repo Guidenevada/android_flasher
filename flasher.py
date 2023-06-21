@@ -20,6 +20,10 @@ def flash(): #function to flash an android devices with every possible image in 
         print(colored("Flashing " + image.split(".")[0] + "...", "green"))
         os.system("fastboot flash " + image.split(".")[0] + " " + image)
         print(colored("Done!", "blue"))
+    print(colored("Ereasing storage", "green"))
+    os.system("fastboot -w")
+    time.sleep(5)
+    os.system("fastboot reboot")
 
 def main():
     flash()
