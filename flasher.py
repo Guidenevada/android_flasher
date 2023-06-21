@@ -1,6 +1,7 @@
 import os
 from art import *
 from termcolor import colored
+import time
 
 def detect_images(): #function to detect images in the current directory
     images = []
